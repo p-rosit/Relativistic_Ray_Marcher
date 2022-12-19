@@ -1,4 +1,4 @@
-# Relativistic_Ray_Marcher
+# Relativistic Ray Marcher
 
 This is a project I made at LTH as a final project in EDAN35 High-Performance Computer Graphics.
 
