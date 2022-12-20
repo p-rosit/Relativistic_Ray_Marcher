@@ -252,20 +252,6 @@ void upsample_image(img_t img) {
 	}
 }
 
-void save_image(img_t img, char* image_name) {
-        FILE *f = fopen(image_name, "wb");
-        fprintf(f, "P6\n%i %i 255\n", img.upsample * img.width, img.upsample * img.height);
-
-        for (int i = 0; i < img.upsample * img.height; i++) {
-            for (int j = 0; j < img.upsample * img.width; j++) {
-                fputc((int) 255 * img.upsample_img[i][j][0], f);
-                fputc((int) 255 * img.upsample_img[i][j][1], f);
-                fputc((int) 255 * img.upsample_img[i][j][2], f);
-            }
-        }
-        fclose(f);
-}
-
 void save_png(img_t img, char* image_name) {
 	int y;
 	FILE *fp = fopen(image_name, "wb");
