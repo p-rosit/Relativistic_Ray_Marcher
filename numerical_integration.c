@@ -107,67 +107,7 @@ void geodesic_deriv(double *x, double *y, double *d, double *ch) {
 	d[2] = -(gfy * tt + fy * (-xx + yy - zz) + 2 * (fx * xy           + fz * yz));
 	d[3] = -(gfz * tt + fz * (-xx - yy + zz) + 2 * (fx * xz + fy * yz          ));
 }
-/*
-void rk4_step(double dt, double *restrict x, double *restrict y, double *restrict new_x, double *restrict new_y, double *restrict ch, double *restrict k1, double *restrict k2, double *restrict k3, double *restrict k4) {
-	/*
-		Computes one runge-kutta step according to the following formula
 
-			k1 = geodesic_deriv(x           , y            )
-			k2 = geodesic_deriv(x + dt/2 * y, y + dt/2 * k1)
-			k3 = geodesic_deriv(x + dt/2 * y, y + dt/2 * k2)
-			k4 = geodesic_deriv(x +   dt * y, y +   dt * k3)
-
-			x_new = x + dt * (1 + 2 * dt / 3) * y
-			y_new = y + dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6
-
-	christoffel(ch, x);
-	geodesic_deriv(x, y, k1, ch);
-
-	new_x[0] = x[0] + .5 * dt * y[0];
-	new_x[1] = x[1] + .5 * dt * y[1];
-	new_x[2] = x[2] + .5 * dt * y[2];
-	new_x[3] = x[3] + .5 * dt * y[3];
-
-	new_y[0] = y[0] + .5 * dt * k1[0];
-	new_y[1] = y[1] + .5 * dt * k1[1];
-	new_y[2] = y[2] + .5 * dt * k1[2];
-	new_y[3] = y[3] + .5 * dt * k1[3];
-
-	christoffel(ch, new_x);
-	geodesic_deriv(new_x, new_y, k2, ch);
-
-	new_y[0] = y[0] + .5 * dt * k2[0];
-	new_y[1] = y[1] + .5 * dt * k2[1];
-	new_y[2] = y[2] + .5 * dt * k2[2];
-	new_y[3] = y[3] + .5 * dt * k2[3];
-
-	geodesic_deriv(new_x, new_y, k3, ch);
-
-	new_x[0] = x[0] + dt * y[0];
-	new_x[1] = x[1] + dt * y[1];
-	new_x[2] = x[2] + dt * y[2];
-	new_x[3] = x[3] + dt * y[3];
-
-	new_y[0] = y[0] + dt * k3[0];
-	new_y[1] = y[1] + dt * k3[1];
-	new_y[2] = y[2] + dt * k3[2];
-	new_y[3] = y[3] + dt * k3[3];
-
-	christoffel(ch, new_x);
-	geodesic_deriv(new_x, new_y, k4, ch);
-
-	double step = dt * (1 + dt / 2);
-	new_x[0] = x[0] + step * y[0];
-	new_x[1] = x[1] + step * y[1];
-	new_x[2] = x[2] + step * y[2];
-	new_x[3] = x[3] + step * y[3];
-
-	new_y[0] = y[0] + dt * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]) / 6;
-	new_y[1] = y[1] + dt * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1]) / 6;
-	new_y[2] = y[2] + dt * (k1[2] + 2 * k2[2] + 2 * k3[2] + k4[2]) / 6;
-	new_y[3] = y[3] + dt * (k1[3] + 2 * k2[3] + 2 * k3[3] + k4[3]) / 6;
-}
-*/
 double rk34_step(double dt, double *x, double *y, double *new_x, double *new_y, double *ch, double *k1, double *k2, double *k3, double *k3_alt, double *k4) {
 	/*
 		Computes one runge-kutta step according to the following formula
