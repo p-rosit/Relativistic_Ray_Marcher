@@ -148,4 +148,3 @@ void main() {
 	free_texture(plane5.tex);
 	free_texture(plane6.tex);
 }
-
