@@ -94,6 +94,5 @@ void make_image(img_t img, object_list_t objects, char* image_name) {
 	upsample_image(img);
 
 	// Save image
-//	save_image(img, image_name);
 	save_png(img, image_name);
 }
