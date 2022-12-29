@@ -14,4 +14,4 @@ Textures are loaded as ppm files but images are saved as png files. This only du
 
 An example of a render can be seen below
 
-![alt text](https://github.com/chokladmousse/Relativistic_Ray_Marcher/blob/main/showcase/1_4k_stars.png)
+![alt text](https://github.com/p-rosit/Relativistic_Ray_Marcher/blob/main/showcase/1_4k_stars.png)
