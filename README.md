@@ -11,3 +11,7 @@ gcc -fopenmp -O3 ray_tracing.c -lm -lpng
 ```
 
 Textures are loaded as ppm files but images are saved as png files. This only due to the fact that I did not know how to load png files when the texture loading was implemented.
+
+An example of a render can be seen below
+
+![alt text](https://github.com/chokladmousse/Relativistic_Ray_Marcher/blob/main/showcase/1_4k_stars.png)
