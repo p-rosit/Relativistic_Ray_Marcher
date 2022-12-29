@@ -20,8 +20,9 @@ void christoffel(double *ch, double *x) {
 			ch[1] = gf_dot
 			ch[1] = gg_dot
 
-		where d/dx f = x * f_dot and the same holds for g. The christoffel
-		symbols at a point can be recovered as lam^k_{ij} = chr[i][j][k]:
+		where fx = x * f_dot and the same holds for gg, gf and different
+		suffixes. The christoffel symbols at a point can be recovered as
+		lam^k_{ij} = chr[i][j][k]:
 
 			chr[:,:,t] = [[  0, ggx, ggy, ggy],
 			 	      [ggx,   0,   0,   0],
@@ -207,7 +208,6 @@ void trace_adaptive_ray(params_t ray_params, intersection_t* intersection, objec
 			// Compute new step and estimate error
 			error = rk34_step(new_dt, x1, y1, x2, y2, ch, k1, k2, k3, k3_alt, k4);
 			trials++;
-
 
 			// If new step size was clipped trying to update step size will not help
 			if (new_dt == ray_params.min_dt || new_dt == ray_params.max_dt) {
